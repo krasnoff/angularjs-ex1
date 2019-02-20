@@ -1,0 +1,44 @@
+<html>
+    <head>
+        <title>Search Bugs</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.7/angular.min.js"></script>
+        <script type="text/javascript" src="app.js"></script>
+    </head>
+    <body  ng-app="app1"> 
+        <div ng-controller="FormController">
+            <div class="jumbotron questionForm">
+                <label for="testerName">Tester Name</label>:&nbsp;
+                <input type="text" placeholder="Enter the tester name" id="testerName" ng-model="testerName" ng-keyup="checkValidity()" ng-class="{ textFieldDisabled: formDisabled }" maxlength="12">
+                <br>
+                <button ng-disabled="formDisabled" ng-click="fetchBug()">Fetch</button>
+            </div>
+
+            <div ng-if="res" class="jumbotron center">
+                “Temporary error occurred, please try again later”
+            </div>
+
+            <div ng-if="res" class="jumbotron center">
+                <table class="table">
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Country</th>
+                        <th>Device</th>
+                        <th>Bugs</th>
+                    </tr>
+                    <tr ng-repeat="row in res">
+                        <td>{{row.firstName}}</td>
+                        <td>{{row.lastName}}</td>
+                        <td>{{row.country}}</td>
+                        <td>{{row.device}}</td>
+                        <td>{{parseBugs(row.bugs)}}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        
+    </body>
+</html>

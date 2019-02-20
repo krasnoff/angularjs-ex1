@@ -1,0 +1,17 @@
+body {
+    margin: 1em 1em 1em 1em;
+}
+
+.textFieldDisabled {
+    color: red;
+}
+
+.questionForm {
+    padding-left: 5.0em;
+}
+
+.center {
+    text-align: center;
+    color: red;
+    font-weight: 700;
+}
